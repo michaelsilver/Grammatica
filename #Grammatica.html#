@@ -25,16 +25,19 @@
 		<a id="submit">Submit</a>
 		<p>{{userCorrect}}</p>
 		<p><b>{{theActualAnswer}}</b></p>
-		<!-- See http://stackoverflow.com/questions/170986/what-is-the-best-way-to-add-options-to-a-select-from-an-array-with-jquery -->
+		<!-- See
+		http://stackoverflow.com/questions/170986/what-is-the-best-way-to-add-options-to-a-select-from-an-array-with-jquery
+		-->
 	</div>
 </template>
 
 <template name="menu">
 	<div class="menu-wrapper">
 		<label id="verbTypesTitle">Prompt With:<br>
-			<select id="VTypeSelector" size="9" multiple="multiple">
-					<option value="All" selected="selected">All Verb Types</option>
-				{{#each verbtypes}}
+			<select id="VTypeSelector" size="8" multiple="multiple">
+					<option value="All"
+				selected="selected">All Verb
+				Types</option> {{#each verbtypes}}
 					<option value="{{this}}">{{this}}</option>
 				{{/each}}
 			</select>
@@ -43,12 +46,9 @@
 </template>
 
 <template name="instructions">
-	<p id="notice"><u>Instructions:</u><br>
-		When prompted, enter the pronoun and conjugated verb.<br>
-		If correct, you will be re-prompted.<br>
-		If incorrect, you must correct yourself to proceed.<br>
-		<br>
-		Beta Site: Still Under Development! Check out our <a href="https://github.com/michaelsilver/Grammatica" target="_blank">source code</a>.<br>
-		Created by Michael Silver
-	</p>
+	<p id="notice"><u>Instructions:</u><br>When prompted, enter
+	the pronoun and conj ugated verb.<br>If correct, you will be
+	re-prompted.<br>If incorrect, you must correct yourself to
+	proceed.<br><br>Beta Site: Still Under Development!<br>Created
+	by Michael Silver</p>
 </template>

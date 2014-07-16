@@ -34,7 +34,7 @@ input:focus{
 	border: 1px solid #66323d;
 }
 
-select{
+#VTypeSelector{
 	padding:8px;
 	border: 1px solid #f8f8f8;
 	margin-top: 10px;
