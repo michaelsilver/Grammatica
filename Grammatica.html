@@ -1,13 +1,46 @@
 <head>
-  <title>Grammatica</title>
+  <title>FrenchGrammatica</title>
 </head>
 
 <body>
-  {{> hello}}
+	<div id="wrap">
+		<h1>French Grammatica</h1>
+		<div id="sidebar">
+			{{> menu}}
+		</div>
+		<div id="main">
+			{{> main}}
+		</div>
+		<div>
+			{{> instructions}}
+		</div>
+	</div>
 </body>
 
-<template name="hello">
-  <h1>Hello World!</h1>
-  {{greeting}}
-  <input type="button" value="Click" />
+<template name="main">
+	<div id="content">
+		<h3 id="pronoun">{{userPronoun}}</h3>
+		<h3 id="verb">{{userVerb.verb}}</h3>
+		<input autofucos type="text" id="userInput"><br>
+		<a id="submit">Submit</a>
+		<p>{{userCorrect}}</p>
+		<p><b>{{theActualAnswer}}</b></p>
+		<!-- See http://stackoverflow.com/questions/170986/what-is-the-best-way-to-add-options-to-a-select-from-an-array-with-jquery -->
+	</div>
+</template>
+
+<template name="menu">
+	<div class="menu-wrapper">
+		<label id="verbTypesTitle">Verb Type(s):<br>
+			<select id="VTypeSelector" size="8" multiple="multiple">
+				{{#each verbtypes}}
+					<option value="{{this}}">{{this}}</option>
+				{{/each}}
+			</select>
+		</label>
+	</div>
+</template>
+
+<template name="instructions">
+	<p id="notice"><u>Instructions:</u><br>When prompted, enter the pronoun and conjugated verb.<br>If correct, you will be re-prompted.<br>If incorrect, you must correct yourself to proceed.<br><br>Beta Site: Still Under Development!<br>Created by Michael Silver</p>
 </template>

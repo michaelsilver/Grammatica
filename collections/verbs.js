@@ -1,0 +1,1 @@
+Verbs = new Meteor.Collection('verbs2');

@@ -1,0 +1,18 @@
+TODO (brainstorm):
+
+-- Something to indicate that you've gotten it right other than just moving on to another prompt (possibly green text field briefly)
+
+-- Highlighting the text which differs from the correct answer
+
+-- Dropdown menu to choose what kinds of verbs to practice from 
+
+-- ignoring characters other than alpha/alpha special
+
+EASY ADDITIONS:
+
+-- a switch for the option of possibly not needing the subject (maybe even have both options acceptable by default)
+
+-- make sure two consecutive randomized prompts are not the same [DONE]
+
+-- change the prompting algorithm so that all conjugations are statistically even [DONE]
+
