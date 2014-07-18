@@ -10,6 +10,7 @@ h1{
 	color: #66323d;
 }
 #wrap{
+	/*background:#f0f0f0;*/
 	width: calc(390px + 160px + 25px);
 	margin: 0 auto;
 	/*overflow:auto;*/
