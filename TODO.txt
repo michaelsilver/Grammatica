@@ -1,18 +1,50 @@
-TODO (brainstorm):
+SHORT-TERM GOALS:
+________________
 
--- Something to indicate that you've gotten it right other than just moving on to another prompt (possibly green text field briefly)
+	-- Add buttons to add accents (to support PC users)
+	-- Make dictionaries/verbConjugation.js more consice (using arrays instead of key:value) i.e.
 
--- Highlighting the text which differs from the correct answer
+			Instead of 
+			'avoir': // these are the actual conjugations
+			        {
+			            'je'         : 'ai',
+			            'tu'         : 'as',
+			            'il/elle/on' : 'a',
+			            'nous'       : 'avons',
+			            'vous'       : 'avez',
+			            'ils/elles'  : 'ont',
+			        },
 
--- Dropdown menu to choose what kinds of verbs to practice from 
+			Have
 
--- ignoring characters other than alpha/alpha special
+			'avoir' : ['ai', 'as', 'a', 'avons', 'avez', 'ont']
 
-EASY ADDITIONS:
+			Note: this will require rewriting some of the client/client.js
 
--- a switch for the option of possibly not needing the subject (maybe even have both options acceptable by default)
+	-- Move dictionaries/verbConjugation.js into the server!
+	
 
--- make sure two consecutive randomized prompts are not the same [DONE]
+EASY ADDITIONS (in cue for Short-term):
+_______________
 
--- change the prompting algorithm so that all conjugations are statistically even [DONE]
+	-- a switch for the option of possibly not needing the subject (maybe even have both options acceptable by default)
+
+	-- Something to indicate that you've gotten it right other than just moving on to another prompt (possibly green text field briefly)
+
+	-- Highlighting the text which differs from the correct answer
+
+TECHNICAL LONGER TERM GOALS
+___________________________
+
+	-- Add Quizlet support
+	-- Add tracking of users/statistics
+		Note: this may require adding the option for users to create an account
+		* see NetSci presentation for formulas
+
+LINGUISTIC LONGER TERM GOALS
+____________________________
+
+	-- Add additional tenses & moods
+
+
 
