@@ -1,59 +1,85 @@
+// Comments are above the syntax they describe (unless they are on the same line as syntax)
+
+// Makes a given web page element updatable (unique to Meteor)
+// We have multiple web page elements, so instead declaring them as updatable individually,
+// we created a function to reduce redundancy.
+// function accepts two inputs:
+// the variable "template" is found in HTML <template name="whatever">
+// NOTE: template has to be input into the function as "Template.whatever" see below calls to this function.
+//"varName" is found in the HTML between the brackets: {{this would be the varName}}
 function exposeSessionVar(template, varName){
 	template[varName] = function(){
 		return Session.get(varName);
 	};
 }
-// make a gien webpage element updatable
+// templates and session variables are unique to Meteor. 
+// They allow us to refer to HTML elements as if they were variables. 
+// Any updates to that HTML (variable) will be updated on the site instantaneously
 
-// pick a random element of an array
+
+// UTILITY: Function to pick a random element from an array of any size.
+// Function given the array as an argument.
 function pickRandomFromArray(array){
 	return array[Math.floor(Math.random() * array.length)];
 }
 
+// Global variable -- needed for some of the functions below
 var pronouns =   ['je', 'tu', 'il/elle/on', 'nous', 'vous', 'ils/elles'];
+
+// UTILITY: When this function is given 'il' for example, the function will return the 
+// so-called "type" of the pronoun which for 'il' is 'il/elle/on'
+// This function is necessary because the database does not know 'il' but does know 'il/elle/on'
+// similarly, the function does not know 'ils' but does know 'ils/elles'
+// If given a pronoun like 'nous' that does not have any slashes, it will return the original 'nous'
 function getTypeOfPronoun(pronoun){
 	var ret;
 	_.each(pronouns, function(candidate){
-		if(_.contains(candidate.split(/\//g), pronoun)){
+		if(_.contains(candidate.split(/\//g), pronoun)){ //splits string by slashes (/)
 			ret = candidate;
 		}
 	});
 	return ret;
 }
-// makes these webpage elements updatable
+
+// Makes these web page elements updatable. Calls above defined function.
 exposeSessionVar(Template.main, 'userPronoun');
 exposeSessionVar(Template.main, 'userVerb');
 exposeSessionVar(Template.main, 'userCorrect');
 exposeSessionVar(Template.main, 'theActualAnswer');
 
 
-// on webpage load, show a random case, number, and noun
-
+// On web page load, shows a random case, number, and noun.
 function promptUser(){
 	if(Verbs.find().count() === 0){
-		window.setTimeout(promptUser, 100);
+		window.setTimeout(promptUser, 100); //waits for a little - otherwise program gets ahead of itself
 		return;
 	}
+
+	// clears everything but the prompts
 	$('#userInput').val('');
 	Session.set('theActualAnswer', '');
 	Session.set('userCorrect', '');
-	// clears everything but the prompts
 
+	// picks a pronoun and verb; saves both of them to variables
 	var promptedPronoun = pickPronoun();
 	var promptedVerb = pickVerb();
 
+	// while the picked pronouns and verbs (not yet prompted) are exactly the same as the 
+	// previously prompted ones, the program re-chooses the pronoun and verb
 	while (promptedPronoun === getPronoun() && promptedVerb === getVerb()){
 		promptedPronoun = pickPronoun();
 		promptedVerb = pickVerb();
-		// console.log("I fixed myself!");
 	}
 
+	// finally, updates the web page with the picked prompts
 	setPrompts(
 		promptedPronoun,
 		promptedVerb
 	);
 }
 
+// Function to update the web page with the provided pronoun + verb. 
+// Uses session variables; sets the pronoun and verb variables to the picked pronoun + verb.
 function setPrompts(pronoun, verb){
 	Session.set('userPronoun', pronoun);
 	Session.set('userVerb', verb);
