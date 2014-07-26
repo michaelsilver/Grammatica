@@ -9,7 +9,7 @@ h1{
 	text-align:center;
 	color: #66323d;
 }
-#wrap{
+.wrap{
 	/*background:#f0f0f0;*/
 	width: calc(390px + 160px + 25px);
 	margin: 0 auto;
@@ -23,14 +23,14 @@ h1{
 	float: left;
 	width: 160px;
 }
-input{
+#userInput{
 	width:calc(400px - 28px);
 	font-size:130%;
 	padding:12px;
 	border: 1px solid #f8f8f8;
 	background-color:#f8f8f8;
 }
-input:focus{
+#userInput:focus{
 	outline:none;
 	border: 1px solid #66323d;
 }
@@ -64,6 +64,7 @@ select:focus{
 	color:white;
 	margin-top:24px;
 	text-align: center;
+	cursor: pointer;
 }
 #notice{
 	position: absolute;
