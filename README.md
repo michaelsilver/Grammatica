@@ -28,6 +28,5 @@ To contribute:
 
 1. fork the repository
 2. make some changes and commit them
-3. create a pull request, and I'll incorporate your changes
-Thank you! 
+3. create a pull request, and I'll incorporate your changes. Thank you! 
 
