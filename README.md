@@ -40,7 +40,7 @@ If you are new to Meteor, you will need to download Meteor to do local testing. 
 $ curl https://install.meteor.com/ | sh
 ```
 
-There are comments in the client/client.js file to help those who are new to Meteor. Also, Meteor has good [documentationn](http://docs.meteor.com/), and there are a few books on Meteor as well.
+There are comments in the client/client.js file to help those who are new to Meteor. Also, Meteor has good [documentation](http://docs.meteor.com/), and there are a few books on Meteor as well.
 
 To run a local version of the website in your browser (local testing), simply run:
 ```
