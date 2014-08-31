@@ -75,7 +75,7 @@ function promptUser(){
 	setPrompts(
 		promptedPronoun,
 		promptedVerb
-	);
+		);
 }
 
 // Function to update the web page with the provided pronoun + verb. 
@@ -161,6 +161,16 @@ function handleSubmit(){
 		Session.set('theActualAnswer', correctAnswer(getPronoun(), getVerb()));
 	}
 }
+
+$( "select" )
+.change(function () {
+	var str = "";
+	$( "select option:selected" ).each(function() {
+		str += $( this ).text() + " ";
+	});
+	console.log( str );
+})
+.change();
 
 function correctAnswer(pronoun, verb){
 	var stem;
